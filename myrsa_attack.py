@@ -23,36 +23,40 @@ def isqrt(x):
 
 def theNothing():
     msg = 123
-    sk, pk, mod, t, p, q = keygen(32)
+    psize = 32
+    sk, pk, mod, t, p, q = keygen(psize)
+    print "Totient", t
     sq = isqrt(mod)
+    k = 0.001189
     #sq = long(math.sqrt(mod)) + 1 
-    third = (sq * 2) 
+    third = long((sq * 2))
     tries = 0
     ctxt = pow(msg, pk, mod)
     diff = mod - pk
-    perc = long(sq * 0.01154)
+    perc = long(sq * k)
     print third, perc, mod % t, t
     mmin = third - perc
     mmax = third + perc
-    guess = (mod - third) % mod
+    guess = ((mod - third) % mod) - perc
     tmp = guess
-    print guess, t
-    print guess - t
+    print "Guess", guess
+    print "To target", guess - t
     while True:
         tmp = (tmp - 1)
         try:
             #if (mod % tmp) >= mmin or (mod % tmp) <= mmax:
-            if tmp != 0:
+            #if numpy.testing.assert_approx_equal(tmp, third):
+            # this is formatted for me
+            if 1 > 0:
                 key = number.inverse(pk, tmp)
                 ptxt = pow(ctxt, key, mod)
                 if ptxt == msg:
                     print ptxt
                     print "Found it"
-                    print g % mod
                     print "Tries", tries
                     break
                 tries += 1
-        except ZeroDivisionError as zer:
+        except (ZeroDivisionError,AssertionError) as zer:
             pass
 
 theNothing()
