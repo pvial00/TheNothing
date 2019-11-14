@@ -27,9 +27,10 @@ def theNothing():
     sk, pk, mod, t, p, q = keygen(psize)
     print "Totient", t
     sq = isqrt(mod)
-    k = 0.001189
+    k = 0.0011893
     #sq = long(math.sqrt(mod)) + 1 
     third = long((sq * 2))
+    print "N mod T", mod % t
     tries = 0
     ctxt = pow(msg, pk, mod)
     diff = mod - pk
