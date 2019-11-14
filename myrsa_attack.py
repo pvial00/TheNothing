@@ -6,9 +6,7 @@ def theNothing():
     msg = 123
     sk, pk, mod, t, p, q = keygen(24)
     sq = long(math.sqrt(mod)) + 1 
-    sq2 = long(math.sqrt(pk)) + 1
     third = (sq * 2) 
-    tmp = mod
     tries = 0
     g = 0
     ctxt = pow(msg, pk, mod)
@@ -20,7 +18,6 @@ def theNothing():
     guess = (mod - third) % mod
     print guess, t
     tmp = guess
-    d = mod - pk
     while True:
         tmp = tmp - 1
         try:
