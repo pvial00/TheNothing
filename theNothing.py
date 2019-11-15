@@ -3,8 +3,6 @@ from myrsa import keygen
 #import gmpy2
 import math
 
-# Breaks RSA with false keys
-
 def ZanderTheorem1(n):
     k = 2
     x = long(math.sqrt(n)) 
@@ -28,6 +26,8 @@ def ZanderTheorem1(n):
         steps += 1
     print "steps", steps
     return x+y
+
+# Use ZanderTheorem2
 
 def ZanderTheorem2(n):
     k = 2
