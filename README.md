@@ -4,3 +4,5 @@
 
 Alpha version of some RSA attacks
 
+ZanderTheorem runs consistently faster than Fermat's theorem
+
