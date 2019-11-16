@@ -101,12 +101,6 @@ message = "M"
 msg = number.bytes_to_long(message)
 
 sk, pk, n, t, p, q = keygen(psize)
-sk = 1942727777
-pk = 1491199073
-n = 2293221757
-a = fermat(n)
-
-#a = fermatX(n)
 myp = ZanderTheoremX(n, psize)
 myq = n / myp
 print myp, myq
