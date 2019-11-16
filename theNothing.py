@@ -46,7 +46,7 @@ def ZanderTheorem2(n):
             y += 1
         else:
             x += 1
-        if n % w <= third w % n > third:
+        if n % w <= third and w % n > third:
             y += 1
         steps += 1
     print "steps", steps
